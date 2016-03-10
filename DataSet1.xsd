@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet1" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="irisDBConnectionString" ConnectionStringObject="" IsAppSettingsProperty="True" Modifier="Assembly" Name="irisDBConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Iris_Matching_System.Properties.Settings.GlobalReference.Default.irisDBConnectionString" Provider="System.Data.SqlClient">
+          </Connection>
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="iris_imagesTableAdapter" GeneratorDataComponentClassName="iris_imagesTableAdapter" Name="iris_images" UserDataComponentName="iris_imagesTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="irisDBConnectionString (Settings)" DbObjectName="dbo.iris_images" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="False" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="True" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="True">
+                    <CommandText>SELECT     id, iris_Image
+FROM         iris_images</CommandText>
+                    <Parameters>
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="id" DataSetColumn="id" />
+              <Mapping SourceColumn="iris_Image" DataSetColumn="iris_Image" />
+            </Mappings>
+            <Sources>
+            </Sources>
+          </TableAdapter>
+        </Tables>
+        <Sources>
+        </Sources>
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="DataSet1" msprop:Generator_DataSetName="DataSet1">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="iris_images" msprop:Generator_UserTableName="iris_images" msprop:Generator_RowDeletedName="iris_imagesRowDeleted" msprop:Generator_TableClassName="iris_imagesDataTable" msprop:Generator_RowChangedName="iris_imagesRowChanged" msprop:Generator_RowClassName="iris_imagesRow" msprop:Generator_RowChangingName="iris_imagesRowChanging" msprop:Generator_RowEvArgName="iris_imagesRowChangeEvent" msprop:Generator_RowEvHandlerName="iris_imagesRowChangeEventHandler" msprop:Generator_TablePropName="iris_images" msprop:Generator_TableVarName="tableiris_images" msprop:Generator_RowDeletingName="iris_imagesRowDeleting">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_UserColumnName="id" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInTable="idColumn" type="xs:int" />
+              <xs:element name="iris_Image" msprop:Generator_UserColumnName="iris_Image" msprop:Generator_ColumnPropNameInRow="iris_Image" msprop:Generator_ColumnVarNameInTable="columniris_Image" msprop:Generator_ColumnPropNameInTable="iris_ImageColumn" type="xs:base64Binary" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

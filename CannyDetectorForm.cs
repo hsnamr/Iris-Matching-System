@@ -1,23 +1,15 @@
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
-
-
-using System.Collections;
 
 using AForge.Imaging.Filters;
 
-namespace Iris_Matching_System
+namespace Iris_Matching_System;
+
+public partial class CannyDetectorForm : Form
 {
-    public partial class CannyDetectorForm : Form
-    {
-
-
-        private CannyEdgeDetector filter = new CannyEdgeDetector();
+    private readonly CannyEdgeDetector _filter = new();
         private System.Windows.Forms.TextBox sigmaBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TrackBar sigmaTrackBar;
@@ -37,35 +29,26 @@ namespace Iris_Matching_System
         //private System.ComponentModel.Container components = null;
 
         // Image property
-        public Bitmap Image
+        public Bitmap? Image
         {
-            set { filterPreview.Image = value; }
-        }
-        // Filter property
-        public IFilter Filter
-        {
-            get { return filter; }
+            set => filterPreview.Image = value;
         }
 
-        // Constructor
+        public IFilter Filter => _filter;
+
         public CannyDetectorForm()
         {
-            //
-            // Required for Windows Form Designer support
-            //
             InitializeComponent();
 
-            // set edit boxes
-            sigmaBox.Text = filter.GaussianSigma.ToString();
-            lowThresholdBox.Text = filter.LowThreshold.ToString();
-            highThresholdBox.Text = filter.HighThreshold.ToString();
+            sigmaBox.Text = _filter.GaussianSigma.ToString();
+            lowThresholdBox.Text = _filter.LowThreshold.ToString();
+            highThresholdBox.Text = _filter.HighThreshold.ToString();
 
-            // set sliders
-            sigmaTrackBar.Value = (int)((filter.GaussianSigma - 1.0) * 20);
-            thresholdSlider.Min = filter.LowThreshold;
-            thresholdSlider.Max = filter.HighThreshold;
+            sigmaTrackBar.Value = (int)((_filter.GaussianSigma - 1.0) * 20);
+            thresholdSlider.Min = _filter.LowThreshold;
+            thresholdSlider.Max = _filter.HighThreshold;
 
-            filterPreview.Filter = filter;
+            filterPreview.Filter = _filter;
         }
 
         /// <summary>
@@ -261,61 +244,54 @@ namespace Iris_Matching_System
         }
         #endregion
 
-        // Changed value of sigma track bar
-        private void sigmaTrackBar_ValueChanged(object sender, System.EventArgs e)
+        private void sigmaTrackBar_ValueChanged(object sender, EventArgs e)
         {
             double v = (double)sigmaTrackBar.Value / 20 + 1.0;
-
             sigmaBox.Text = v.ToString();
         }
 
-        // Treshold values changed using slider
-        private void thresholdSlider_ValuesChanged(object sender, System.EventArgs e)
+        private void thresholdSlider_ValuesChanged(object sender, EventArgs e)
         {
             lowThresholdBox.Text = thresholdSlider.Min.ToString();
             highThresholdBox.Text = thresholdSlider.Max.ToString();
         }
 
-        // Sigma changed
-        private void sigmaBox_TextChanged(object sender, System.EventArgs e)
+        private void sigmaBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                filter.GaussianSigma = double.Parse(sigmaBox.Text);
-
+                _filter.GaussianSigma = double.Parse(sigmaBox.Text);
                 filterPreview.RefreshFilter();
             }
-            catch (Exception)
+            catch (FormatException)
             {
+                // Ignore invalid input
             }
         }
 
-        // Low threshold value changed
-        private void lowThresholdBox_TextChanged(object sender, System.EventArgs e)
+        private void lowThresholdBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                filter.LowThreshold = byte.Parse(lowThresholdBox.Text);
-
+                _filter.LowThreshold = byte.Parse(lowThresholdBox.Text);
                 filterPreview.RefreshFilter();
             }
-            catch (Exception)
+            catch (FormatException)
             {
+                // Ignore invalid input
             }
         }
 
-        // Hight threshold value changed
-        private void highThresholdBox_TextChanged(object sender, System.EventArgs e)
+        private void highThresholdBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                filter.HighThreshold = byte.Parse(highThresholdBox.Text);
-
+                _filter.HighThreshold = byte.Parse(highThresholdBox.Text);
                 filterPreview.RefreshFilter();
             }
-            catch (Exception)
+            catch (FormatException)
             {
+                // Ignore invalid input
             }
         }
     }
-}

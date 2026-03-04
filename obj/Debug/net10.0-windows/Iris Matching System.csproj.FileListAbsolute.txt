@@ -1,0 +1,9 @@
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris Matching System.csproj.AssemblyReference.cache
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/DemoApp.IMSForm.resources
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris_Matching_System.storeDB.resources
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris Matching System.csproj.GenerateResource.cache
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris Matching System.GeneratedMSBuildEditorConfig.editorconfig
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris Matching System.AssemblyInfoInputs.cache
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris Matching System.AssemblyInfo.cs
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris Matching System.csproj.CoreCompileInputs.cache
+/home/halamri/Workspace/self/Iris-Matching-System/obj/Debug/net10.0-windows/Iris Matching System.sourcelink.json
